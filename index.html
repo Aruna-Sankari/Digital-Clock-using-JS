@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Digital Clock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 align="center"  class="head">Digital Clock</h1>
+<div id="container">
+<p id="clock"></p>
+</div>
+<script>
+function displaytime(){
+var d=new Date();     // current date and time
+var hour=d.getHours();   // (0-23)
+var min=d.getMinutes();   // (0-59)
+var sec=d.getSeconds();    // (0-59)
+var session="AM";   // initial value of session
+if(hour>=12){
+session="PM";   // To check the hour is greater than 12
+}
+
+if(hour<10)
+hour="0"+hour;   // To print the (0-9) hour as a double digit
+
+if(min<10)
+min="0"+min;      // To print the (0-9) minutes as a double digit
+
+if(sec<10)
+sec="0"+sec;       //  To print the (0-9)  seconds  as a double digit
+
+document.getElementById("clock").innerHTML=hour+":"+min+":"+sec+" "+session;  //  To  display the digital clock
+}
+setInterval(displaytime,1000);  // setInterval(function,milliseconds)
+</script>
+</body>
+</html>
